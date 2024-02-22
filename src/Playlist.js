@@ -40,7 +40,7 @@ const Playlist = ({ playlist }) => {
         </div>
       )}
       {selectedFile && (
-        <div>
+        <div style={{ color: "green" }}>
           <h3>Playing: {selectedFile.name}</h3>
           <AudioPlayer file={selectedFile} playNext={handlePlayNext} />
         </div>
