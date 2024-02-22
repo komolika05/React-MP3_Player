@@ -1,23 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { useLocalStorage } from "react-use";
+
+import AudioUploader from "./AudioUploader";
+
+import Playlist from "./Playlist";
 
 function App() {
+  const [playlist, setPlaylist] = useLocalStorage("playlist", []);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>MP3 Playlist Player</h1>
+
+      <AudioUploader playlist={playlist} setPlaylist={setPlaylist} />
+      <Playlist playlist={playlist} />
     </div>
   );
 }
