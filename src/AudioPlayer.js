@@ -1,13 +1,13 @@
 import React from "react";
 
-const Player = ({ file }) => {
+const Player = ({ file, playNext }) => {
   if (!file || (typeof file === "object" && !Object.keys(file).length)) {
-    return null; // Handle no file selected
+    return null;
   }
 
   return (
     <div>
-      <audio controls src={file.data} />
+      <audio controls src={file.data} onEnded={playNext} />
     </div>
   );
 };
