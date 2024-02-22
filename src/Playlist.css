@@ -1,0 +1,12 @@
+.songItem {
+    align-self: center;
+    width: 400px;
+    width: 100%;
+    font-weight: bold;
+  }
+  
+  .selectedSongItem {
+    background-color: green;
+    color: white;
+    padding: 12px;
+  }

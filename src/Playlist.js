@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import AudioPlayer from "./AudioPlayer"; // Import AudioPlayer component
 import { useLocalStorage } from "react-use";
+import "./Playlist.css";
 
 const Playlist = ({ playlist }) => {
   const [currentIndex, setCurrentIndex] = useLocalStorage("currentIndex", 0); // Use useLocalStorage hook
@@ -33,7 +34,13 @@ const Playlist = ({ playlist }) => {
       {playlist.length > 0 && (
         <div>
           {playlist.map((file, index) => (
-            <p key={index} onClick={() => handleSelect(index)}>
+            <p
+              className={`${
+                selectedFile.name === file.name ? "selectedSongItem" : ""
+              } songItem`}
+              key={index}
+              onClick={() => handleSelect(index)}
+            >
               {file.name} ({file.size} bytes)
             </p>
           ))}
@@ -41,7 +48,7 @@ const Playlist = ({ playlist }) => {
       )}
       {selectedFile && (
         <div style={{ color: "green" }}>
-          <h3>Playing: {selectedFile.name}</h3>
+          <h3>Now playing: {selectedFile.name}</h3>
           <AudioPlayer file={selectedFile} playNext={handlePlayNext} />
         </div>
       )}
