@@ -36,7 +36,7 @@ const Playlist = ({ playlist }) => {
           {playlist.map((file, index) => (
             <p
               className={`${
-                selectedFile.name === file.name ? "selectedSongItem" : ""
+                selectedFile?.name === file.name ? "selectedSongItem" : ""
               } songItem`}
               key={index}
               onClick={() => handleSelect(index)}
