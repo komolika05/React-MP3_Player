@@ -3,10 +3,11 @@
     width: 400px;
     width: 100%;
     font-weight: bold;
-  }
+    cursor: pointer;
+}
   
-  .selectedSongItem {
+.selectedSongItem {
     background-color: green;
     color: white;
     padding: 12px;
-  }
+}
