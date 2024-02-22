@@ -16,15 +16,13 @@ const Playlist = ({ playlist }) => {
   return (
     <div>
       {playlist.length > 0 && (
-        <ul>
+        <div>
           {playlist.map((file, index) => (
-            <li key={index} onClick={() => handleSelect(index)}>
-              <p>
-                {file.name} ({file.size} bytes)
-              </p>
-            </li>
+            <p key={index} onClick={() => handleSelect(index)}>
+              {file.name} ({file.size} bytes)
+            </p>
           ))}
-        </ul>
+        </div>
       )}
       {selectedFile && (
         <div>
